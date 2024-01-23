@@ -52,68 +52,53 @@ data = [
     diapositiva: "/imagenes/thumbnails/UND1050.jpg",
   },
 ];
-//función para generar un string aleatorio. Al valor que obtengo de la función le antepongo el código de producto para generar un ID que no se repite
-function generarID(length) {
-  let idgenerado = "";
-  const characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  const charactersLength = characters.length;
-  let counter = 0;
-  while (counter < length) {
-    idgenerado += characters.charAt(
-      Math.floor(Math.random() * charactersLength)
-    );
-    counter += 1;
-  }
-  return idgenerado;
-}
 
 class ProductManager {
   constructor() {
     this.productos = [];
   }
   addProduct = (title, price, code, stock, description, thumb) => {
-    if (title && price && code && stock && description && thumb) {
-      const productoNuevo = { title, price, code, stock, description, thumb };
-      if (
-        this.productos.find(
-          (cadaproducto) => cadaproducto.code === productoNuevo.code
-        )
-      ) {
-        console.log(
-          `el producto con código ${code} ya está en la bdd y no será agregado`
-        );
-      } else {
-        this.productos.push({
-          title,
-          code,
-          price,
-          thumb,
-          stock,
-          description,
-          id: "".concat(code, generarID(5)),
-        });
-      }
-    } else {
-      console.log("faltan uno o más datos");
+    if (!title || !price || !code || !stock || !description || !thumb) {
+      return console.log(
+        `Al producto con nombre ${title} le faltan uno o más datos`
+      );
     }
+
+    if (this.productos.find((cadaproducto) => cadaproducto.code === code)) {
+      return console.log(
+        `El producto con código ${code} ya está en la bdd y no será agregado`
+      );
+    }
+
+    this.productos.push({
+      title,
+      code,
+      price,
+      thumb,
+      stock,
+      description,
+      id: this.productos.length + 1,
+    });
+    console.log(`El producto con código ${code} fue agregado con éxito`);
   };
   getProducts = () => {
     console.log("Productos", this.productos);
   };
   getProductByID = (id) => {
-    if (this.productos.find((cadaproducto) => cadaproducto.id === id)) {
-      console.log(
-        "El producto encontrado con id: ",
-        id,
-        " es el siguiente: ",
-        this.productos.find((cadaproducto) => cadaproducto.id === id)
-      );
-    } else {
-      console.log("no se encontró el producto con el id ", id);
-    }
+    const productoEncontrado = this.productos.find(
+      (cadaproducto) => cadaproducto.id === id
+    );
+    productoEncontrado
+      ? console.log(
+          "El producto encontrado con id: ",
+          id,
+          " es el siguiente: ",
+          productoEncontrado
+        )
+      : console.log("No se encontró el producto con el id ", id);
   };
 }
+
 productos = new ProductManager();
 console.log("existentes al principio ");
 productos.getProducts();
@@ -129,16 +114,13 @@ productos.addProduct(
 console.log("existentes después del primer agregado ");
 productos.getProducts();
 //agrego productos del array data
-data.forEach((producto, key) => {
+data.forEach((producto) => {
   {
-    console.log("Producto número ", key + 1);
     productos.addProduct(...Object.values(producto));
   }
 });
 console.log("Luego de agregar el array de datos");
 productos.getProducts();
 
-//para verificar cómo funciona get product by ID, obtengo el ID del producto en el tercer lugar del array
-const ID = productos.productos[2].id;
-productos.getProductByID(ID);
+productos.getProductByID(2);
 productos.getProductByID("amneris");
