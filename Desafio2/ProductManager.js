@@ -271,15 +271,9 @@ class ProductManager {
     try {
       console.log("===Empieza función update===\n\n");
       const productoAmodificar = await this.getProductByID(id);
-      console.log("a modificar", productoAmodificar);
+      console.log("Producto a modificar ", productoAmodificar);
       if (productoAmodificar) {
-        console.log("a modificar", productoAmodificar);
         const indice = this.#productos.indexOf(productoAmodificar);
-        console.log("indice en archivo ", indice);
-        console.log(
-          "valor de propiedad stock original ",
-          this.#productos[indice][propiedad]
-        );
         this.#productos[indice][propiedad] = nuevoValor;
         await this.#fs.promises.writeFile(
           this.#productosRutaArchivo,
