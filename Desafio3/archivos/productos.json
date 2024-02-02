@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Chaleco Salvavidas Zhik",
+    "price": 120000,
+    "code": "PFD20",
+    "stock": 30,
+    "description": "Chaleco con espuma de celda cerrada",
+    "thumb": "imagenes/thumbnails/PFD20.jpg",
+    "id": 1
+  },
+  {
+    "title": "Calza térmica infantil",
+    "price": 12600,
+    "code": "WsT018",
+    "stock": 30,
+    "description": "Calza larga fabricada en tela bamboo, ideal como primera piel para usarse debajo del neoprene",
+    "thumb": "/imagenes/thumbnails/WsT018.jpg",
+    "id": 3
+  },
+  {
+    "title": "Chaqueta náutica respirable Thermoskin",
+    "price": 96000,
+    "code": "Ws4019",
+    "stock": 11,
+    "description": "Chaqueta fabricada en tela impermeable y respirable, con puños y cintura de neoprene",
+    "thumb": "/imagenes/thumbnails/Ws4019.jpg",
+    "id": 4
+  },
+  {
+    "title": "Anteojos polarizados ringless",
+    "price": 54000,
+    "code": "UND1054",
+    "stock": 3,
+    "description": "Anteojos con marco superior, lentes polarizados y espejados.",
+    "thumb": "/imagenes/thumbnails/UND1054.jpg",
+    "id": 5
+  }
+]
