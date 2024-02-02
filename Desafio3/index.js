@@ -9,12 +9,14 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/products", async (req, res) => {
   let limite = req.query.limit;
   if (limite) {
+    const productosObtenidos = await productManager.getProducts();
+
+    res.json(productosObtenidos.slice(0, limite));
   } else {
-    res.send(await productManager.getProducts());
+    const productosObtenidos = await productManager.getProducts();
+
+    res.json(productosObtenidos);
   }
-});
-app.get("/products/:id", async (req, res) => {
-  res.send(await productManager.getProductByID(parseInt(req.params.id)));
 });
 app.get("/products/:id", async (req, res) => {
   res.send(await productManager.getProductByID(parseInt(req.params.id)));

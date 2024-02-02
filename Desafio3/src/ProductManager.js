@@ -28,21 +28,17 @@ class ProductManager {
    *
    */
   createDir = async () => {
-    console.log("==En función createDir===\n\n");
-
     try {
       await this.#fs.promises.mkdir(this.#productosRutaDirectorio, {
         recursive: true,
       });
       if (!this.#fs.existsSync(this.#productosRutaArchivo)) {
-        console.log("el archivo no existe => se crea vacío");
         await this.#fs.promises.writeFile(this.#productosRutaArchivo, "[]");
       }
     } catch (error) {
       console.log("error creando directorio y archivo", error);
       throw ("error creando directorio y archivo", error);
     } finally {
-      console.log("==termina funcion de crear archivo==\n\n");
     }
   };
 
@@ -51,8 +47,6 @@ class ProductManager {
    *
    */
   addProduct = async (title, price, code, stock, description, thumb) => {
-    console.log("=== Empieza la función AddProduct===\n\n");
-    //verifico si tiene todos los datos. Si no los tiene interrumpe el proceso
     if (!title || !price || !code || !stock || !description || !thumb) {
       return console.log(
         `Al producto con nombre ${title} le faltan uno o más datos y no será agregado \n`
@@ -112,8 +106,6 @@ class ProductManager {
           productoNuevo
         )}, detalle del error: ${error}`
       );
-    } finally {
-      console.log("===Finaliza función add products===\n\n");
     }
   };
   /* Método getProducts: Leer archivo y obtener productos
@@ -127,9 +119,8 @@ class ProductManager {
         this.#productosRutaArchivo,
         "utf-8"
       );
-      this.#productos = JSON.parse(productosLeidos);
 
-      return this.#productos;
+      return JSON.parse(productosLeidos);
     } catch (error) {
       console.error(
         `Dentro de getProducts: Error leyendo los productos, detalle del error: ${error}`
@@ -145,9 +136,9 @@ class ProductManager {
    */
   getProductByID = async (id) => {
     try {
-      await this.getProducts();
+      const productosObtenidos = await this.getProducts();
 
-      const productoEncontrado = this.#productos.find(
+      const productoEncontrado = await productosObtenidos.find(
         (cadaproducto) => cadaproducto.id === id
       );
       if (productoEncontrado) {
@@ -162,8 +153,6 @@ class ProductManager {
       throw Error(
         `Error leyendo los productos en get product by id, detalle del error: ${error}`
       );
-    } finally {
-      console.log("===Fin get product by id===\n\n");
     }
   };
 
@@ -188,8 +177,6 @@ class ProductManager {
       console.log(
         `error al tratar de borrar el producto, detalle del error: ${error}`
       );
-    } finally {
-      console.log("===Fin de la función para borrar===");
     }
   };
 
@@ -200,7 +187,7 @@ class ProductManager {
   updateProductByID = async (id, propiedad, nuevoValor) => {
     try {
       const productoAmodificar = await this.getProductByID(id);
-      console.log("Producto a modificar ", productoAmodificar);
+
       if (productoAmodificar) {
         const indice = this.#productos.indexOf(productoAmodificar);
         this.#productos[indice][propiedad] = nuevoValor;
@@ -216,8 +203,6 @@ class ProductManager {
       console.log(
         `error al tratar de modificar el producto, detalle del error: ${error}`
       );
-    } finally {
-      console.log("===Fin de la función para modificar===");
     }
   };
 }

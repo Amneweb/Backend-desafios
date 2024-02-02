@@ -9,6 +9,15 @@
     "id": 1
   },
   {
+    "title": "Chaleco Zhik de Neoprene",
+    "price": 200000,
+    "code": "PFD30",
+    "stock": 10,
+    "description": "Chaleco con espuma de celda cerrada, forrado con neoprene. Ajuste ergonómico, con cierre lateral para fácil colocación",
+    "thumb": "imagenes/thumbnails/PFD30.jpg",
+    "id": 2
+  },
+  {
     "title": "Calza térmica infantil",
     "price": 12600,
     "code": "WsT018",
@@ -34,5 +43,50 @@
     "description": "Anteojos con marco superior, lentes polarizados y espejados.",
     "thumb": "/imagenes/thumbnails/UND1054.jpg",
     "id": 5
+  },
+  {
+    "title": "Long John Thermoskin",
+    "price": 140000,
+    "code": "Ws4023",
+    "stock": 5,
+    "description": "Entero de neoprene con piernas largas, sin mangas. Ideal para navegación deportiva. Plush interior. 2.5mm de espesor.",
+    "thumb": "/imagenes/thumbnails/Ws4023.jpg",
+    "id": 6
+  },
+  {
+    "title": "Bolsa estanca de 25 litros",
+    "price": 20000,
+    "code": "BOL25",
+    "stock": 10,
+    "description": "Bolsa cilíndrica en tela impermeable con 25 litros de capacidad, cierre superior enrollable que la hace totalmente hermética. Con cinta para colgar del hombro.",
+    "thumb": "/imagenes/thumbnails/BOL25.jpg",
+    "id": 7
+  },
+  {
+    "title": "Bolsa estanca de 10 litros",
+    "price": 15000,
+    "code": "BOL10",
+    "stock": 4,
+    "description": "Bolsa cilíndrica en tela impermeable con 10 litros de capacidad, cierre superior enrollable que la hace totalmente hermética.",
+    "thumb": "/imagenes/thumbnails/BOL10.jpg",
+    "id": 8
+  },
+  {
+    "title": "Cuello multifunción Nopal",
+    "price": 4000,
+    "code": "NOPAL",
+    "stock": 50,
+    "description": "Cuello en tela de secado rápido, ideal para los climas intermedios. Coloridos o formales, se pueden usar de infinidad de maneras distintas.",
+    "thumb": "/imagenes/thumbnails/NOPAL.jpg",
+    "id": 9
+  },
+  {
+    "title": "Gorro Piluso Nopal",
+    "price": 15000,
+    "code": "piluso",
+    "stock": 10,
+    "description": "Gorro tipo piluso, con ajuste para que no se vuele",
+    "thumb": "/imagenes/thumbnails/piluso.jpg",
+    "id": 10
   }
 ]
