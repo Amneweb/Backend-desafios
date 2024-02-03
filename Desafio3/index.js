@@ -11,11 +11,11 @@ app.get("/products", async (req, res) => {
   if (limite) {
     const productosObtenidos = await productManager.getProducts();
 
-    res.json(productosObtenidos.slice(0, limite));
+    res.send(productosObtenidos.slice(0, limite));
   } else {
     const productosObtenidos = await productManager.getProducts();
 
-    res.json(productosObtenidos);
+    res.send(productosObtenidos);
   }
 });
 app.get("/products/:id", async (req, res) => {
