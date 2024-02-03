@@ -2,6 +2,10 @@
 
 En este repositorio iré colocando las carpetas con los archivos de los desafíos entregables del curso.
 
+## Desafio 3
+
+Servidor con express, al que podemos consultar por datos guardados en un archivo.
+
 ## Desafío 1
 
 Consiste en armar una Clase ProductManager que genera un array al que se le agregarán productos mediante métodos propios de la clase.
