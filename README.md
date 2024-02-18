@@ -2,6 +2,11 @@
 
 En este repositorio iré colocando las carpetas con los archivos de los desafíos entregables del curso.
 
+## Desafío 4
+
+Actualización de productos en tiempo real con websockets. Se puede ver un listado de productos desde localhost:8080/, que hace una petición HTTP.
+O desde localhost:8080/realtimeproducts se puede ver un listado de productos que se actualice cuando cualquier usuario agregue, borre o modifique un producto, y toda la información se maneja con protocolo de websocket.
+
 ## Desafio 3
 
 Servidor con express, al que podemos consultar por datos guardados en un archivo.
