@@ -3,7 +3,7 @@ import handlebars from "express-handlebars";
 import __dirname from "./utils.js";
 import { Server } from "socket.io";
 import viewRouter from "./routes/views.routes.js";
-
+import ProductManager from "./public/js/ProductManager.js";
 // declarando el servidor express
 const app = express();
 const PORT = 8080;
@@ -27,13 +27,14 @@ const httpServer = app.listen(PORT, () =>
 
 //instanciamos socket.io (Server es una clase)
 const socketServer = new Server(httpServer);
-
+const productManager = new ProductManager();
 //abrimos conexión global del lado del servidor
+
 let contador = 0;
-socketServer.on("connection", (socket) => {
+
+socketServer.on("connection", async (socket) => {
   contador += 1;
   console.log(contador, " nuevo cliente conectado");
-  socket.emit("msgServer", "Mensaje enviado desde el BE");
-  socket.on("msgCliente", (data) => console.log(data, "log de ", data.logs));
-  socket.on("mensajeDesdeInput", (data) => console.log(data, data.logs));
+  const productosObtenidos = await productManager.getProducts();
+  socketServer.emit("infoProductos", productosObtenidos);
 });
