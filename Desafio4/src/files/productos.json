@@ -47,5 +47,63 @@
     "category": "ropa/guantes",
     "thumb": [],
     "id": 4
+  },
+  {
+    "title": "Bolso estanco de 20 litros",
+    "price": "25000",
+    "code": "AQUA-20",
+    "stock": "20",
+    "description": "bolso cilíndrico con cinta para colgar del hombro. tela súper resistente",
+    "status": "Bolsos",
+    "category": true,
+    "id": 9
+  },
+  {
+    "title": "Remera neoprene mujer",
+    "price": "34000",
+    "code": "grreww",
+    "stock": "32",
+    "description": "remera costura flat lock",
+    "status": "ropa",
+    "category": true,
+    "id": 11
+  },
+  {
+    "title": "Remera de hombre de neoprene",
+    "price": "45000",
+    "code": "54321",
+    "stock": "10",
+    "description": "remera con costuras chatas, 2mm de espesor",
+    "status": "ropa",
+    "category": true,
+    "id": 12
+  },
+  {
+    "title": "Traba de mástil",
+    "price": "45000",
+    "code": "EX1203",
+    "stock": "20",
+    "description": "Traba para evitar roturas de fogonadura",
+    "category": "herrajes",
+    "id": 13
+  },
+  {
+    "title": "Herraje de timón largo",
+    "code": "1160",
+    "stock": "10",
+    "description": "herraje de 3 agujeros",
+    "category": "herrajes",
+    "id": 14,
+    "price": "14000",
+    "status": "true"
+  },
+  {
+    "title": "Veleta PRO",
+    "price": "25000",
+    "code": "EX1243",
+    "stock": "50",
+    "description": "Veleta con avioncito de plástico, prácticamente 0 rozamiento",
+    "category": "Herrajes",
+    "id": 15
   }
 ]

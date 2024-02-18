@@ -30,11 +30,36 @@ const socketServer = new Server(httpServer);
 const productManager = new ProductManager();
 //abrimos conexión global del lado del servidor
 
-let contador = 0;
+let contador = 0; //para verificar la cantidad de ventanas abiertas
 
 socketServer.on("connection", async (socket) => {
   contador += 1;
   console.log(contador, " nuevo cliente conectado");
   const productosObtenidos = await productManager.getProducts();
   socketServer.emit("infoProductos", productosObtenidos);
+  socket.on("nuevoProducto", async (data) => {
+    console.log("producto agregado ", data);
+
+    await productManager.addProduct(
+      data.title,
+      data.price,
+      data.code,
+      data.stock,
+      data.description,
+      data.status,
+      data.category
+    );
+  });
+  socket.on("aBorrar", async (data) => {
+    console.log("data a borrar ", data);
+    await productManager.deleteProductByID(parseInt(data));
+  });
+  socket.on("aModificar", async (data) => {
+    console.log("data a modificar ", data);
+    await productManager.updateProductByID(
+      parseInt(data.IDamodificar),
+      data.propiedad,
+      data.valor
+    );
+  });
 });

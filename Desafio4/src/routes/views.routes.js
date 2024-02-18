@@ -31,7 +31,7 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/realtimeproducts", async (req, res) => {
-  res.render("realTimeProducts");
+  res.render("realTimeProducts", { style: "general.css" });
 });
 
 export default router;
