@@ -1,3 +1,11 @@
+function formatear(amount) {
+  const formateado = new Intl.NumberFormat("es-AR", {
+    style: "currency",
+    currency: "ARS",
+  }).format(amount);
+  return formateado;
+}
+
 const socket = io();
 const productos = document.querySelector("#productos");
 document.querySelector("lista.principal") &&
@@ -14,7 +22,7 @@ const dibujarProductos = (data) => {
     porProducto += `<ul class="interna">`;
     porProducto += `<li>${producto.id}</li>`;
     porProducto += `<li>${producto.title}</li>`;
-    porProducto += `<li>${producto.price}</li>`;
+    porProducto += `<li>${formatear(producto.price)}</li>`;
     porProducto += `<li>${producto.description}</li>`;
     porProducto += `<li>${producto.code}</li>`;
     porProducto += `<li>${producto.status}</li>`;
@@ -45,6 +53,14 @@ formulario.addEventListener("submit", (e) => {
   document
     .querySelectorAll("input:not([type='submit'])")
     .forEach((cadaInput) => (cadaInput.value = ""));
+  const mostrarError = document.querySelector("#errorAgregar");
+  mostrarError.innerText = "";
+  socket.on("errorAgregar", (data) => {
+    if (data) {
+      console.log("error en cliente ", data);
+      mostrarError.innerText = data;
+    }
+  });
 });
 
 const borrador = document.querySelector("#borrar");
@@ -55,6 +71,13 @@ borrador.addEventListener("submit", (e) => {
   console.log("a borrar ", IDaborrar);
 
   socket.emit("aBorrar", IDaborrar);
+  const mostrarError = document.querySelector("#errorBorrar");
+  mostrarError.innerText = "";
+  socket.on("errormsj", (data) => {
+    if (data) {
+      mostrarError.innerText = data;
+    }
+  });
 });
 
 const modificador = document.querySelector("#modificar");
@@ -70,4 +93,11 @@ modificador.addEventListener("submit", (e) => {
   console.log("valor ", valor);
 
   socket.emit("aModificar", { IDamodificar, propiedad, valor });
+  const mostrarError = document.querySelector("#errorModificar");
+  mostrarError.innerText = "";
+  socket.on("errorModificar", (data) => {
+    if (data) {
+      mostrarError.innerText = data;
+    }
+  });
 });

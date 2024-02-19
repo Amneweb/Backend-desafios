@@ -17,12 +17,12 @@ router.get("/", async (req, res) => {
       }
       const productos = await productManager.getProducts();
       const productosObtenidos = productos.slice(0, limite);
-      res.render("home", { productosObtenidos });
+      res.render("home", { productosObtenidos, style: "general.css" });
     } else {
       const productosObtenidos = await productManager.getProducts();
-      console.log(productosObtenidos);
       res.render("home", {
         productosObtenidos,
+        style: "general.css",
       });
     }
   } catch (e) {

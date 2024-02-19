@@ -13,20 +13,6 @@
     "id": 1
   },
   {
-    "title": "Calza térmica infantil",
-    "price": "27000",
-    "code": "WST017",
-    "stock": 2,
-    "description": "Calza larga fabricada en tela bamboo, ideal como primera piel para usarse debajo del neoprene",
-    "status": true,
-    "category": "general",
-    "thumb": [
-      "/Users/amneriscalle/Documents/McBook%20PRO/CarreraFullStack/Curso4-Backend/ProyectoFinalBackend/public/img/1707684067188-calza_larga_dryskin_thermoskin_imagen1.jpg",
-      "/Users/amneriscalle/Documents/McBook%20PRO/CarreraFullStack/Curso4-Backend/ProyectoFinalBackend/public/img/1707736950271-yco2021.png"
-    ],
-    "id": 2
-  },
-  {
     "title": "Chaqueta náutica respirable Thermoskin",
     "price": "96000",
     "code": "Ws4019",
@@ -59,16 +45,6 @@
     "id": 9
   },
   {
-    "title": "Remera neoprene mujer",
-    "price": "34000",
-    "code": "grreww",
-    "stock": "32",
-    "description": "remera costura flat lock",
-    "status": "ropa",
-    "category": true,
-    "id": 11
-  },
-  {
     "title": "Remera de hombre de neoprene",
     "price": "45000",
     "code": "54321",
@@ -85,16 +61,7 @@
     "stock": "20",
     "description": "Traba para evitar roturas de fogonadura",
     "category": "herrajes",
-    "id": 13
-  },
-  {
-    "title": "Herraje de timón largo",
-    "code": "1160",
-    "stock": "10",
-    "description": "herraje de 3 agujeros",
-    "category": "herrajes",
-    "id": 14,
-    "price": "14000",
+    "id": 13,
     "status": "true"
   },
   {
@@ -104,6 +71,16 @@
     "stock": "50",
     "description": "Veleta con avioncito de plástico, prácticamente 0 rozamiento",
     "category": "Herrajes",
-    "id": 15
+    "id": 15,
+    "status": "true"
+  },
+  {
+    "title": "Veleta banderita",
+    "price": "19000",
+    "code": "EX1240",
+    "stock": "10",
+    "description": "veleta con frame de alambre e indicador de tela plástica",
+    "category": "herrajes",
+    "id": 16
   }
 ]

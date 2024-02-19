@@ -25,7 +25,7 @@
         <input type="submit" value="enviar">
       </form>
 </div>
-
+<div class="errores" id="errorAgregar"></div>
 <div>
   <h2>Borrar productos</h2>
   <form id="borrar" action="">
@@ -33,6 +33,7 @@
   <input type="text" id="IDproducto" value="">
   <input type="submit">
 </form></div>
+<div class="errores" id="errorBorrar"></div>
 <div>
   <h2>Modificar productos</h2>
   <form id="modificar" action="">
@@ -51,7 +52,7 @@
   <input type="text" id="nuevoValor" name="nuevoValor" value="">
   <input type="submit">
 </form></div>
-
+<div class="errores" id="errorModificar"></div>
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/realtimeproducts.js"></script>

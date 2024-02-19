@@ -13,7 +13,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //configuración de Handlebars
-app.engine("handlebars", handlebars.engine());
+
+const hbs = handlebars.create({
+  helpers: {
+    formatear: function (amount) {
+      const formateado = new Intl.NumberFormat("es-AR", {
+        style: "currency",
+        currency: "ARS",
+      }).format(amount);
+      return formateado;
+    },
+  },
+});
+app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 app.set("views", __dirname + "/views");
 
@@ -40,26 +52,41 @@ socketServer.on("connection", async (socket) => {
   socket.on("nuevoProducto", async (data) => {
     console.log("producto agregado ", data);
 
-    await productManager.addProduct(
-      data.title,
-      data.price,
-      data.code,
-      data.stock,
-      data.description,
-      data.status,
-      data.category
-    );
+    try {
+      await productManager.addProduct(
+        data.title,
+        data.price,
+        data.code,
+        data.stock,
+        data.description,
+        data.status,
+        data.category
+      );
+    } catch (e) {
+      console.log("error ", e.message);
+      socket.emit("errorAgregar", e.message);
+    }
   });
   socket.on("aBorrar", async (data) => {
     console.log("data a borrar ", data);
-    await productManager.deleteProductByID(parseInt(data));
+    try {
+      await productManager.deleteProductByID(parseInt(data));
+    } catch (e) {
+      console.log("error ", e.message);
+      socket.emit("errormsj", e.message);
+    }
   });
   socket.on("aModificar", async (data) => {
     console.log("data a modificar ", data);
-    await productManager.updateProductByID(
-      parseInt(data.IDamodificar),
-      data.propiedad,
-      data.valor
-    );
+    try {
+      await productManager.updateProductByID(
+        parseInt(data.IDamodificar),
+        data.propiedad,
+        data.valor
+      );
+    } catch (e) {
+      console.log("error modificando", e.message);
+      socket.emit("errorModificar", e.message);
+    }
   });
 });
