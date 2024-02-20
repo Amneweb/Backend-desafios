@@ -8,35 +8,28 @@ function formatear(amount) {
 
 const socket = io();
 const productos = document.querySelector("#productos");
-document.querySelector("lista.principal") &&
-  document.querySelector("lista.principal").remove();
 const dibujarProductos = (data) => {
-  const nuevoFragmento = new DocumentFragment();
-  const lista = document.createElement("ul");
-  lista.classList.add("principal");
-  lista.innerHTML = `<li><ul class="interna encabezado"><li>ID</li><li>Nombre</li><li>Precio</li><li>Descripción</li><li>Código</li><li>Status</li><li>Stock</li></ul></li>`;
+  let inner = "";
+  inner += `<ul class="principal"><li><ul class="interna encabezado"><li>ID</li><li>Nombre</li><li>Precio</li><li>Descripción</li><li>Código</li><li>Status</li><li>Stock</li></ul></li>`;
 
   data.forEach((producto) => {
-    const listaInterna = document.createElement("li");
-    let porProducto = "";
-    porProducto += `<ul class="interna">`;
-    porProducto += `<li>${producto.id}</li>`;
-    porProducto += `<li>${producto.title}</li>`;
-    porProducto += `<li>${formatear(producto.price)}</li>`;
-    porProducto += `<li>${producto.description}</li>`;
-    porProducto += `<li>${producto.code}</li>`;
-    porProducto += `<li>${producto.status}</li>`;
-    porProducto += `<li>${producto.stock}</li>`;
-    porProducto += `</ul>`;
-    listaInterna.innerHTML = porProducto;
-    lista.append(listaInterna);
+    inner += `<ul class="interna">`;
+    inner += `<li>${producto.id}</li>`;
+    inner += `<li>${producto.title}</li>`;
+    inner += `<li>${formatear(producto.price)}</li>`;
+    inner += `<li>${producto.description}</li>`;
+    inner += `<li>${producto.code}</li>`;
+    inner += `<li>${producto.status}</li>`;
+    inner += `<li>${producto.stock}</li>`;
+    inner += `</ul>`;
   });
-  nuevoFragmento.append(lista);
-  productos.append(nuevoFragmento);
+  inner += `</ul>`;
+
+  productos.innerHTML = inner;
 };
 socket.on("infoProductos", (data) => {
   console.log("info productos provenientes del servidor", data);
-  productos.innerHTML = "";
+
   dibujarProductos(data);
 });
 const formulario = document.querySelector("#agregar");

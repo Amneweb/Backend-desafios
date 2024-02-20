@@ -82,5 +82,15 @@
     "description": "veleta con frame de alambre e indicador de tela plástica",
     "category": "herrajes",
     "id": 16
+  },
+  {
+    "title": "Chaleco de neoprene NOB",
+    "price": "160000",
+    "code": "NOB-VF",
+    "stock": "4",
+    "description": "chaleco de impacto, no es salvavidas, es DAF",
+    "category": "salvavidas",
+    "id": 17,
+    "status": "true"
   }
 ]

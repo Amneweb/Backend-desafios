@@ -42,7 +42,7 @@ const socketServer = new Server(httpServer);
 const productManager = new ProductManager();
 //abrimos conexión global del lado del servidor
 
-let contador = 0; //para verificar la cantidad de ventanas abiertas
+let contador = 0; //para verificar la cantidad de ventanas abiertas === usuarios conectados
 
 socketServer.on("connection", async (socket) => {
   contador += 1;
