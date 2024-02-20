@@ -1,0 +1,58 @@
+
+      <h1>Hola, bienvenidos a Handlebars Store</h1>
+
+<div>
+  <h2>Productos existentes</h2>
+</div>
+<div id="productos"></div>
+<div>
+  <h2>Agregar productos</h2>
+     <form id="agregar" action="">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" value="">
+        <label for="price">Price</label>
+        <input type="number" id="price" name="price" value="">
+        <label for="category">Category</label>
+        <input type="text" name="category" value="" id="category">
+        <label for="code">Code</label>
+        <input type="text" id="code" name="code" value="">
+        <label for="description">Descripcion</label>
+        <input type="text" id="description" value="" name="description">
+        <label for="stock">Stock</label>
+        <input type="number" id="stock" value="" name="stock">
+        <label for="status">Status</label>
+        <input type="text" value="true">
+        <input type="submit" value="enviar">
+      </form>
+</div>
+<div class="errores" id="errorAgregar"></div>
+<div>
+  <h2>Borrar productos</h2>
+  <form id="borrar" action="">
+  <label for="IDproducto">Ingresar ID de producto a borrar</label>
+  <input type="text" id="IDproducto" value="">
+  <input type="submit">
+</form></div>
+<div class="errores" id="errorBorrar"></div>
+<div>
+  <h2>Modificar productos</h2>
+  <form id="modificar" action="">
+  <label for="IDproductoModificar">Ingresar ID de producto a modificar</label>
+  <input type="text" id="IDproductoModificar" name="IDproductoModificar" value="">
+  <label for="propiedad">Elegir propiedad</label>
+  <select name="propiedad" id="propiedad">
+  <option value="title">Nombre</option>
+  <option value="price">Precio</option>
+  <option value="stock">Stock</option>
+  <option value="description">Descripción</option>
+  <option value="category">Categoría</option>
+  <option value="status">Status</option>
+</select>
+  <label for="nuevoValor">Nuevo valor</label>
+  <input type="text" id="nuevoValor" name="nuevoValor" value="">
+  <input type="submit">
+</form></div>
+<div class="errores" id="errorModificar"></div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/realtimeproducts.js"></script>
