@@ -81,7 +81,8 @@
     "stock": "10",
     "description": "veleta con frame de alambre e indicador de tela plástica",
     "category": "herrajes",
-    "id": 16
+    "id": 16,
+    "status": "true"
   },
   {
     "title": "Chaleco de neoprene NOB",
