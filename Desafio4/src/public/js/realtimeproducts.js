@@ -42,7 +42,7 @@ formulario.addEventListener("submit", (e) => {
   console.log("nuevo producto ", nuevoProducto);
 
   socket.emit("nuevoProducto", nuevoProducto);
-  productos.innerHTML = "";
+
   document
     .querySelectorAll("input:not([type='submit'])")
     .forEach((cadaInput) => (cadaInput.value = ""));
