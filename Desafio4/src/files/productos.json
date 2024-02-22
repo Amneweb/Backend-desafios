@@ -93,5 +93,14 @@
     "category": "salvavidas",
     "id": 17,
     "status": "true"
+  },
+  {
+    "title": "Campera Treego",
+    "price": "45321",
+    "code": "TR-cha",
+    "stock": "4",
+    "description": "Chaqueta respirable, impermeable, en oferta",
+    "category": "ropa",
+    "id": 18
   }
 ]

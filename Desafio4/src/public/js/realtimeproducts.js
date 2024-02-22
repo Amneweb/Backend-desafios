@@ -31,6 +31,7 @@ socket.on("infoProductos", (data) => {
   console.log("info productos provenientes del servidor", data);
 
   dibujarProductos(data);
+  socket.emit;
 });
 const formulario = document.querySelector("#agregar");
 

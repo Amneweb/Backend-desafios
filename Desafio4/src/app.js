@@ -66,6 +66,8 @@ socketServer.on("connection", async (socket) => {
       console.log("error ", e.message);
       socket.emit("errorAgregar", e.message);
     }
+    const productosObtenidos = await productManager.getProducts();
+    socketServer.emit("infoProductos", productosObtenidos);
   });
   socket.on("aBorrar", async (data) => {
     console.log("data a borrar ", data);
@@ -75,6 +77,8 @@ socketServer.on("connection", async (socket) => {
       console.log("error ", e.message);
       socketServer.emit("errormsj", e.message);
     }
+    const productosObtenidos = await productManager.getProducts();
+    socketServer.emit("infoProductos", productosObtenidos);
   });
   socket.on("aModificar", async (data) => {
     console.log("data a modificar ", data);
@@ -88,5 +92,7 @@ socketServer.on("connection", async (socket) => {
       console.log("error modificando", e.message);
       socketServer.emit("errorModificar", e.message);
     }
+    const productosObtenidos = await productManager.getProducts();
+    socketServer.emit("infoProductos", productosObtenidos);
   });
 });
